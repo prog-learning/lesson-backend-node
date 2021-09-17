@@ -1,4 +1,6 @@
-{
-  "name": "nob",
-  "text": "test"
-}
+[
+  { "id": "JKsI9emuA_cF32vChouDy", "name": "nob", "text": "test" },
+  { "id": "dk_CLLlxOJj3ms2fuvGhA", "name": "post-name", "text": "post-text" },
+  { "id": "i7TwctY4HPvQE6hjohc7b", "name": "post-name", "text": "post-text" },
+  { "id": "L6sWMN40jg4aOMuhoFFWT", "name": "post-name", "text": "post-text" }
+]

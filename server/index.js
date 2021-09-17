@@ -1,12 +1,19 @@
+/* 簡単にサーバーの構築ができるExpressを使用 */
 const express = require('express');
 const app = express();
-const port = 8000;
-const cors = require('cors');
 
+/* CORSという制限に引っかからないようにしておく設定 */
+const cors = require('cors');
 app.use(cors());
 
-const fs = require('fs');
-const dataObject = JSON.parse(fs.readFileSync('./server/data.json', 'utf8'));
+/* リクエストのbodyを受け取るための設定 */
+const bodyParser = require('body-parser');
+app.use(bodyParser());
+
+const { getJsonData, postJsonData } = require('./functions');
+
+// const fs = require('fs');
+// const dataObject = JSON.parse(fs.readFileSync('./server/data.json', 'utf8'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -14,16 +21,18 @@ app.get('/', (req, res) => {
 
 // GET http://localhost:8000/api/getData
 app.get('/api/getData/', function (req, res) {
-  res.status(200).json(dataObject);
+  const data = getJsonData();
+  res.status(200).json(data);
 });
 
-// GET http://localhost:8000/api/v1/
-app.get('/api/v1/', function (req, res) {
-  res.json({
-    message: 'Hello,world',
-  });
+// GET http://localhost:8000/api/postData/
+app.post('/api/postData/', function (req, res) {
+  const params = req.body;
+  postJsonData(params);
+  res.status(200).end();
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+/* PORT:8000を使用してサーバーをListen（起動） */
+app.listen(8000, () => {
+  console.log(`Example app listening at http://localhost:8000`);
 });
