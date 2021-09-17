@@ -34,5 +34,4 @@ yarn start
 
 ```sh
 docker-compose up
->>>>>>> Stashed changes
 ```
