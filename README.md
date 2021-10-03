@@ -38,4 +38,15 @@ docker-compose up
 
 ### Heroku にデプロイする
 
-heroku の setup をしてください
+heroku の setup
+
+```sh
+brew install heroku
+heroku login
+```
+
+heroku のアカウントを作成し,新規 app を作成し GitHub 連携をして Deploy
+
+成功した URL
+
+https://lesson-backend-node.herokuapp.com/
