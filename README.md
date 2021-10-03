@@ -35,3 +35,7 @@ yarn start
 ```sh
 docker-compose up
 ```
+
+### Heroku にデプロイする
+
+heroku の setup をしてください

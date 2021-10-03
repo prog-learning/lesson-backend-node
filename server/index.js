@@ -1,6 +1,7 @@
 /* 簡単にサーバーの構築ができるExpressを使用 */
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 8000; // PORTは環境変数から取得 なければ8000になる
 
 /* CORSという制限に引っかからないようにしておく設定 */
 const cors = require('cors');
@@ -32,7 +33,7 @@ app.post('/api/postData/', function (req, res) {
   res.status(200).end();
 });
 
-/* PORT:8000を使用してサーバーをListen（起動） */
-app.listen(8000, () => {
-  console.log(`Example app listening at http://localhost:8000`);
+/* PORTを使用してサーバーをListen（起動） */
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
