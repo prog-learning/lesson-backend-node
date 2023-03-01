@@ -8,8 +8,8 @@ const cors = require('cors');
 app.use(cors());
 
 /* リクエストのbodyを受け取るための設定 */
-const bodyParser = require('body-parser');
-app.use(bodyParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const { getJsonData, postJsonData } = require('./functions');
 
@@ -26,7 +26,7 @@ app.get('/api/getData/', function (req, res) {
   res.status(200).json(data);
 });
 
-// GET http://localhost:8000/api/postData/
+// POST http://localhost:8000/api/postData/
 app.post('/api/postData/', function (req, res) {
   const params = req.body;
   postJsonData(params);
